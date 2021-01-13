@@ -3,7 +3,7 @@ import numpy as np
 from mpi4py import MPI
 from numpy import loadtxt
 
-q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')
+q_global = loadtxt('3nodeQualityVector.csv', delimiter=',')
 
 n_soln = len(q_global)
 
