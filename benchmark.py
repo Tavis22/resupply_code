@@ -24,7 +24,7 @@ qwoa = qu.MPI.qwoa(n_soln, comm, qubits = False)
 
 qwoa.set_initial_state(name="equal")
 
-qwoa.set_optimiser('scipy',{'method':'BFGS','tol':1e-3,'options':{'eps':2e-06}},['fun','nfev','success'])
+qwoa.set_optimiser('scipy',{'method':'BFGS','tol':1e-3,'options':{'eps':1.5e-08}},['fun','nfev','success'])
 
 qwoa.log_results("qwoa_complete_equal", "equal", action = "a")
 
@@ -35,7 +35,7 @@ qwoa.benchmark(
     trials,
     param_func = x0,
     qual_func = local_qualities,
-    param_persist = True,
+    param_persist = False,
     filename = "qwoa_complete_equal",
     label = "qwoa")
 qwoa.destroy_plan()
