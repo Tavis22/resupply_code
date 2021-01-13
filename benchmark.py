@@ -3,6 +3,9 @@ import numpy as np
 from mpi4py import MPI
 from numpy import loadtxt
 
+trials = 3
+max_p = 10 
+
 q_global = loadtxt('3nodeQualityVector.csv', delimiter=',')
 
 n_soln = len(q_global)
@@ -26,8 +29,8 @@ qwoa.log_results("qwoa_complete_equal", "equal", action = "a")
 qwoa.plan()
 
 qwoa.benchmark(
-    range(1, 10),
-    3,
+    range(1, max_p + 1),
+    trials,
     param_func = x0,
     qual_func = local_qualities,
     param_persist = True,
