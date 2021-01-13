@@ -4,9 +4,9 @@ from mpi4py import MPI
 from numpy import loadtxt
 
 trials = 3
-max_p = 10 
+max_p = 8 
 
-q_global = loadtxt('3nodeQualityVector.csv', delimiter=',')
+q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')
 
 n_soln = len(q_global)
 

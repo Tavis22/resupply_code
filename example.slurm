@@ -1,10 +1,10 @@
 #!/bin/bash -l
-#SBATCH --job-name=3node_qwoa
+#SBATCH --job-name=8node_qwoa
 #SBATCH --partition=workq
 #SBATCH --nodes=1
-#SBATCH --time=00:05:00
+#SBATCH --time=02:00:00
 #SBATCH --account=pawsey0309
-#SBATCH --output=3node_qwoa.out
+#SBATCH --output=8node_qwoa.out
 
 export OMP_NUM_THREADS=1
 
