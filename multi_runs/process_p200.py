@@ -4,7 +4,7 @@ import pandas as pd
 
 p = 5
 trials = 5
-runs = 10
+runs = 40
 
 log = pd.read_csv('qwoa_complete_equal.csv')
 expectation_values = log.fun 
