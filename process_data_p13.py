@@ -30,6 +30,8 @@ for i in qual_dict:
     distribution.append(qual_dict[i])
 data_out[label] = distribution
 
+
+labels = [label]
 output = pd.DataFrame(data_out, columns = labels, index = unique_quals)
 
 output.to_csv (r'quality_distributions.csv', index = True, header=True)
