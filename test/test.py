@@ -2,6 +2,9 @@ import quop_mpi as qu
 import numpy as np
 from mpi4py import MPI
 from numpy import loadtxt
+import pandas as pd
+import h5py
+
 
 trials = 5
 p = 5
@@ -44,7 +47,7 @@ for i in range(runs):
     
     log = pd.read_csv('qwoa_complete_equal.csv')
     expectation_values = log.fun 
-    label = 'qwoa_' + str(i + 1) + '_' + str(pd.Series.idxmin(expectation_values[i*trials:(i + 1) * trials])-i*trials + 1)
+    label = 'qwoa_' + str(p) + '_' + str(pd.Series.idxmin(expectation_values[i*trials:(i + 1) * trials])-i*trials + 1)
     data = h5py.File('qwoa_run_' + str(i + 1) + '.h5','r')
     nextstate = np.array(data[label]["final_state"]).view(np.complex128)
     qwoa.set_initial_state(state=nextstate)
