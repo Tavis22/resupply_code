@@ -17,7 +17,7 @@ comm = MPI.COMM_WORLD
 rng = np.random.RandomState(1)
 
 def x0(p,seed):
-    return rng.uniform(low = 0, high = 6*np.pi, size = 2 * p)
+    return rng.uniform(low = 0, high = 2*np.pi, size = 2 * p)
 
 qwoa = qu.MPI.qwoa(n_soln, comm, qubits = False)
 
