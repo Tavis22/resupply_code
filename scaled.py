@@ -24,7 +24,7 @@ qwoa = qu.MPI.qwoa(n_soln, comm, qubits = False)
 
 qwoa.set_initial_state(name="equal")
 
-qwoa.set_optimiser('scipy',{'method':'BFGS','tol':6e-6,'options':{'eps':1e-10, 'gtol':6e-8}},['fun','nfev','success'])
+# qwoa.set_optimiser('scipy',{'method':'BFGS','tol':6e-6,'options':{'eps':1e-10, 'gtol':6e-8}},['fun','nfev','success'])
 
 qwoa.log_results("qwoa_complete_equal", "equal", action = "a")
 
