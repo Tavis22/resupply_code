@@ -2,7 +2,7 @@ import h5py
 import numpy as np
 import pandas as pd
 
-trials = 3
+trials = 1
 max_p = 8
 
 log = pd.read_csv('qwoa_complete_equal.csv')

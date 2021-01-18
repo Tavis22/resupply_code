@@ -2,9 +2,9 @@ import h5py
 import numpy as np
 import pandas as pd
 
-p = 5
-trials = 5
-runs = 40
+trials = 2
+p = 3
+runs = 70
 
 log = pd.read_csv('qwoa_complete_equal.csv')
 expectation_values = log.fun 

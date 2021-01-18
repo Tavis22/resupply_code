@@ -3,7 +3,7 @@ import numpy as np
 from mpi4py import MPI
 from numpy import loadtxt
 
-trials = 3
+trials = 1
 max_p = 8
 
 q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')

@@ -2,7 +2,7 @@
 #SBATCH --job-name=8node_qwoa
 #SBATCH --partition=workq
 #SBATCH --nodes=1
-#SBATCH --time=02:30:00
+#SBATCH --time=03:00:00
 #SBATCH --account=pawsey0309
 #SBATCH --output=8node_qwoa.out
 

@@ -6,9 +6,9 @@ import pandas as pd
 import h5py
 
 
-trials = 5
-p = 5
-runs = 40
+trials = 2
+p = 3
+runs = 70
 
 q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')
 
