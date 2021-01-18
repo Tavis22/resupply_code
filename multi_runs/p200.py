@@ -45,7 +45,7 @@ for i in range(runs):
         filename = "qwoa_run_" + str(i + 1),
         label = "qwoa")
     
-    log = pd.read_csv('qwoa_complete_equal.csv')
+    log = pd.read_csv('multirun_default.csv')
     expectation_values = log.fun 
     label = 'qwoa_' + str(p) + '_' + str(pd.Series.idxmin(expectation_values[i*trials:(i + 1) * trials])-i*trials + 1)
     data = h5py.File('qwoa_run_' + str(i + 1) + '.h5','r')
