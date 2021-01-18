@@ -3,10 +3,10 @@ import numpy as np
 import pandas as pd
 
 trials = 2
-p = 3
-runs = 70
+p = 5
+runs = 40
 
-log = pd.read_csv('qwoa_complete_equal.csv')
+log = pd.read_csv('multirun_default.csv')
 expectation_values = log.fun 
 labels = []
 for i in range(runs):
@@ -17,7 +17,7 @@ quals = np.array(data[labels[0]]["qualities"]).view(np.float64)
 unique_quals = sorted(set(quals))
 number_unique_quals = len(unique_quals)
 data_out = {}
-run_labels = [str(5*(i + 1)) for i in range(runs)]
+run_labels = [str(p*(i + 1)) for i in range(runs)]
 
 for j in range(runs):
     data = h5py.File('qwoa_run_' + str(j + 1) + '.h5','r')
@@ -33,4 +33,4 @@ for j in range(runs):
 
 output = pd.DataFrame(data_out, columns = run_labels, index = unique_quals)
 
-output.to_csv (r'quality_distributions.csv', index = True, header=True)
+output.to_csv (r'multirun_default_qual_distributions.csv', index = True, header=True)

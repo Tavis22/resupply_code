@@ -7,8 +7,8 @@ import h5py
 
 
 trials = 2
-p = 5
-runs = 40
+p = 3
+runs = 70
 
 q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')
 
@@ -30,7 +30,7 @@ qwoa.set_initial_state(name="equal")
 
 # qwoa.set_optimiser('scipy',{'method':'BFGS','tol':6e-6,'options':{'eps':1e-10, 'gtol':6e-8}},['fun','nfev','success'])
 
-qwoa.log_results("multirun_default", "equal", action = "a")
+qwoa.log_results("qwoa_complete_equal", "equal", action = "a")
 
 qwoa.plan()
 
@@ -51,5 +51,6 @@ for i in range(runs):
     data = h5py.File('qwoa_run_' + str(i + 1) + '.h5','r')
     nextstate = np.array(data[label]["final_state"]).view(np.complex128)
     qwoa.set_initial_state(state=nextstate)
+#     qwoa.set_initial_state(state=qwoa.final_state)   if we only end up needing 1 trial
     
 qwoa.destroy_plan()
