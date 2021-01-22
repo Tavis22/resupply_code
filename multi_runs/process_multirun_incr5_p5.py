@@ -12,14 +12,14 @@ expectation_values = log.fun
 labels = []
 labels.append('qwoa_' + str(p) + '_' + str(pd.Series.idxmin(expectation_values[0:p]) + 1))
 for i in range(runs):
-    labels.append('qwoa_' + str(p+i) + '_' + str(pd.Series.idxmin(expectation_values[(i+1)*trials:(i+2)*trials])-(i+1)*trials + 1))
+    labels.append('qwoa_' + str(p+incr*i) + '_' + str(pd.Series.idxmin(expectation_values[(i+1)*trials:(i+2)*trials])-(i+1)*trials + 1))
 
 data = h5py.File("multirun_p" + str(p) + "_incr" + str(incr) + '_initial.h5','r')
 quals = np.array(data[labels[0]]["qualities"]).view(np.float64)
 unique_quals = sorted(set(quals))
 number_unique_quals = len(unique_quals)
 data_out = {}
-run_labels = ['Initial_p' + str(p)] + ['p = ' + str(p+i) for i in range(runs)]
+run_labels = ['Initial_p' + str(p)] + ['p = ' + str(p+i*incr) for i in range(runs)]
 
 qual_dict = {i : 0 for i in unique_quals}
 state = np.array(data[labels[0]]["final_state"]).view(np.complex128)

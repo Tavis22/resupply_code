@@ -53,7 +53,7 @@ qwoa.set_initial_state(state=nextstate)
 for i in range(runs):
 
     qwoa.benchmark(
-        range(p+i, p+i+1),
+        range(p+incr*i, p+incr*i+1),
         trials,
         param_func = x0,
         qual_func = local_qualities,
@@ -63,7 +63,7 @@ for i in range(runs):
     
     log = pd.read_csv('multirun_p' + str(p) + "_incr" + str(incr) + '.csv')
     expectation_values = log.fun 
-    label = 'qwoa_' + str(p+i) + '_' + str(pd.Series.idxmin(expectation_values[(i+1)*trials:(i+2)*trials])-(i+1)*trials + 1)
+    label = 'qwoa_' + str(p+incr*i) + '_' + str(pd.Series.idxmin(expectation_values[(i+1)*trials:(i+2)*trials])-(i+1)*trials + 1)
     data = h5py.File("multirun_p" + str(p) + "_incr" + str(incr) + "_run" + str(i + 1) + '.h5','r')
     nextstate = np.array(data[label]["final_state"]).view(np.complex128)
     qwoa.set_initial_state(state=nextstate)
