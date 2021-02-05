@@ -12,13 +12,19 @@ q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')
 n_soln = len(q_global)
 
 def local_qualities(N, local_i, local_i_offset, seed = None):
-    q_slice = q_global[local_i_offset:local_i_offset + local_i]
-    q_filt = np.fromiter((0 if q > 240 else 0.05*(241-q) for q in q_slice),float)
-    return q_filt
-
+    q_slice = q_global[local_i_offset:local_i_offset + local_i]/370
+    a = []
+    for i in range(len(q_slice)):
+        if i % 2 == 0:
+            a.append(q_slice[i])
+        else:
+            a.append(-q_slice[i])
+    q_flip = np.array(a)
+    return q_flip
+    
 def mapping(x):
-    weighted_quality = -(5**(240-x)) 
-    return weighted_quality
+    q_abs = abs(x) 
+    return q_abs*370
 
 comm = MPI.COMM_WORLD
 
