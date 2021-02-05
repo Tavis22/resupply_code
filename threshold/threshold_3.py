@@ -13,7 +13,7 @@ n_soln = len(q_global)
 
 def local_qualities(N, local_i, local_i_offset, seed = None):
     q_slice = q_global[local_i_offset:local_i_offset + local_i]
-    q_filt = np.fromiter((0 if i > 225 else 0.5 for i in qslice),float)
+    q_filt = np.fromiter((0 if i > 225 else 0.5 for i in q_slice),float)
     return q_filt
 
 def mapping(x):
