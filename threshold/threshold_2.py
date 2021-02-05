@@ -17,7 +17,7 @@ def local_qualities(N, local_i, local_i_offset, seed = None):
     return q_filt
 
 def mapping(x):
-    weighted_quality = -(5**(240-x)) 
+    weighted_quality = -(5**(x/0.05)) 
     return weighted_quality
 
 comm = MPI.COMM_WORLD

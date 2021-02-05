@@ -5,7 +5,7 @@ from numpy import loadtxt
 
 trials = 3
 max_p = 20
-file_name = 'threshold_1'
+file_name = 'sign_flip_1'
 
 q_global = loadtxt('8nodeQualityVector.csv', delimiter=',')
 
@@ -17,7 +17,7 @@ def local_qualities(N, local_i, local_i_offset, seed = None):
     return q_filt
 
 def mapping(x):
-    weighted_quality = -(5**(x/0.05)) 
+    weighted_quality = -(5**(240-x)) 
     return weighted_quality
 
 comm = MPI.COMM_WORLD
